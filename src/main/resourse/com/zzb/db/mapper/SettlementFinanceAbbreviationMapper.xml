@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzb.db.mapper.SettlementFinanceAbbreviationMapper">
+  <resultMap id="BaseResultMap" type="com.zzb.db.model.SettlementFinanceAbbreviation">
+    <!--@mbg.generated-->
+    <!--@Table settlement_finance_abbreviation-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="data_status" jdbcType="TINYINT" property="dataStatus" />
+    <result column="creator_id" jdbcType="INTEGER" property="creatorId" />
+    <result column="creator_name" jdbcType="VARCHAR" property="creatorName" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, code, `name`, data_status, creator_id, creator_name, create_time, update_time, 
+    is_deleted
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from settlement_finance_abbreviation
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from settlement_finance_abbreviation
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.zzb.db.model.SettlementFinanceAbbreviation" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into settlement_finance_abbreviation (code, `name`, data_status, 
+      creator_id, creator_name, create_time, 
+      update_time, is_deleted)
+    values (#{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{dataStatus,jdbcType=TINYINT}, 
+      #{creatorId,jdbcType=INTEGER}, #{creatorName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.zzb.db.model.SettlementFinanceAbbreviation" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into settlement_finance_abbreviation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        code,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="dataStatus != null">
+        data_status,
+      </if>
+      <if test="creatorId != null">
+        creator_id,
+      </if>
+      <if test="creatorName != null">
+        creator_name,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="dataStatus != null">
+        #{dataStatus,jdbcType=TINYINT},
+      </if>
+      <if test="creatorId != null">
+        #{creatorId,jdbcType=INTEGER},
+      </if>
+      <if test="creatorName != null">
+        #{creatorName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzb.db.model.SettlementFinanceAbbreviation">
+    <!--@mbg.generated-->
+    update settlement_finance_abbreviation
+    <set>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="dataStatus != null">
+        data_status = #{dataStatus,jdbcType=TINYINT},
+      </if>
+      <if test="creatorId != null">
+        creator_id = #{creatorId,jdbcType=INTEGER},
+      </if>
+      <if test="creatorName != null">
+        creator_name = #{creatorName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zzb.db.model.SettlementFinanceAbbreviation">
+    <!--@mbg.generated-->
+    update settlement_finance_abbreviation
+    set code = #{code,jdbcType=VARCHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      data_status = #{dataStatus,jdbcType=TINYINT},
+      creator_id = #{creatorId,jdbcType=INTEGER},
+      creator_name = #{creatorName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="searchFianceAbbreviationByName" resultMap="BaseResultMap">
+     select <include refid="Base_Column_List" />
+     from settlement_finance_abbreviation
+     where name = #{financeAbbreviationName,jdbcType=VARCHAR}
+     and is_deleted=0
+</select>
+</mapper>

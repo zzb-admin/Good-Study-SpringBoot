@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzb.db.mapper.SettlementClientMapper">
+  <resultMap id="BaseResultMap" type="com.zzb.db.model.SettlementClient">
+    <!--@mbg.generated-->
+    <!--@Table settlement_client-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="client_id" jdbcType="INTEGER" property="clientId" />
+    <result column="client_name" jdbcType="VARCHAR" property="clientName" />
+    <result column="finance_abbreviation_id" jdbcType="INTEGER" property="financeAbbreviationId" />
+    <result column="finance_abbreviation_name" jdbcType="VARCHAR" property="financeAbbreviationName" />
+    <result column="rebate_abbreviation_id" jdbcType="INTEGER" property="rebateAbbreviationId" />
+    <result column="rebate_abbreviation_name" jdbcType="VARCHAR" property="rebateAbbreviationName" />
+    <result column="data_status" jdbcType="TINYINT" property="dataStatus" />
+    <result column="data_source" jdbcType="TINYINT" property="dataSource" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="client_size" jdbcType="TINYINT" property="clientSize" />
+    <result column="client_kind" jdbcType="TINYINT" property="clientKind" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, client_id, client_name, finance_abbreviation_id, finance_abbreviation_name, rebate_abbreviation_id, 
+    rebate_abbreviation_name, data_status, data_source, create_time, update_time, is_deleted, 
+    client_size, client_kind
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from settlement_client
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from settlement_client
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.zzb.db.model.SettlementClient" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into settlement_client (client_id, client_name, finance_abbreviation_id, 
+      finance_abbreviation_name, rebate_abbreviation_id, 
+      rebate_abbreviation_name, data_status, data_source, 
+      create_time, update_time, is_deleted, 
+      client_size, client_kind)
+    values (#{clientId,jdbcType=INTEGER}, #{clientName,jdbcType=VARCHAR}, #{financeAbbreviationId,jdbcType=INTEGER}, 
+      #{financeAbbreviationName,jdbcType=VARCHAR}, #{rebateAbbreviationId,jdbcType=INTEGER}, 
+      #{rebateAbbreviationName,jdbcType=VARCHAR}, #{dataStatus,jdbcType=TINYINT}, #{dataSource,jdbcType=TINYINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=TINYINT}, 
+      #{clientSize,jdbcType=TINYINT}, #{clientKind,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.zzb.db.model.SettlementClient" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into settlement_client
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="clientId != null">
+        client_id,
+      </if>
+      <if test="clientName != null">
+        client_name,
+      </if>
+      <if test="financeAbbreviationId != null">
+        finance_abbreviation_id,
+      </if>
+      <if test="financeAbbreviationName != null">
+        finance_abbreviation_name,
+      </if>
+      <if test="rebateAbbreviationId != null">
+        rebate_abbreviation_id,
+      </if>
+      <if test="rebateAbbreviationName != null">
+        rebate_abbreviation_name,
+      </if>
+      <if test="dataStatus != null">
+        data_status,
+      </if>
+      <if test="dataSource != null">
+        data_source,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="clientSize != null">
+        client_size,
+      </if>
+      <if test="clientKind != null">
+        client_kind,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="clientId != null">
+        #{clientId,jdbcType=INTEGER},
+      </if>
+      <if test="clientName != null">
+        #{clientName,jdbcType=VARCHAR},
+      </if>
+      <if test="financeAbbreviationId != null">
+        #{financeAbbreviationId,jdbcType=INTEGER},
+      </if>
+      <if test="financeAbbreviationName != null">
+        #{financeAbbreviationName,jdbcType=VARCHAR},
+      </if>
+      <if test="rebateAbbreviationId != null">
+        #{rebateAbbreviationId,jdbcType=INTEGER},
+      </if>
+      <if test="rebateAbbreviationName != null">
+        #{rebateAbbreviationName,jdbcType=VARCHAR},
+      </if>
+      <if test="dataStatus != null">
+        #{dataStatus,jdbcType=TINYINT},
+      </if>
+      <if test="dataSource != null">
+        #{dataSource,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="clientSize != null">
+        #{clientSize,jdbcType=TINYINT},
+      </if>
+      <if test="clientKind != null">
+        #{clientKind,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzb.db.model.SettlementClient">
+    <!--@mbg.generated-->
+    update settlement_client
+    <set>
+      <if test="clientId != null">
+        client_id = #{clientId,jdbcType=INTEGER},
+      </if>
+      <if test="clientName != null">
+        client_name = #{clientName,jdbcType=VARCHAR},
+      </if>
+      <if test="financeAbbreviationId != null">
+        finance_abbreviation_id = #{financeAbbreviationId,jdbcType=INTEGER},
+      </if>
+      <if test="financeAbbreviationName != null">
+        finance_abbreviation_name = #{financeAbbreviationName,jdbcType=VARCHAR},
+      </if>
+      <if test="rebateAbbreviationId != null">
+        rebate_abbreviation_id = #{rebateAbbreviationId,jdbcType=INTEGER},
+      </if>
+      <if test="rebateAbbreviationName != null">
+        rebate_abbreviation_name = #{rebateAbbreviationName,jdbcType=VARCHAR},
+      </if>
+      <if test="dataStatus != null">
+        data_status = #{dataStatus,jdbcType=TINYINT},
+      </if>
+      <if test="dataSource != null">
+        data_source = #{dataSource,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="clientSize != null">
+        client_size = #{clientSize,jdbcType=TINYINT},
+      </if>
+      <if test="clientKind != null">
+        client_kind = #{clientKind,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zzb.db.model.SettlementClient">
+    <!--@mbg.generated-->
+    update settlement_client
+    set client_id = #{clientId,jdbcType=INTEGER},
+      client_name = #{clientName,jdbcType=VARCHAR},
+      finance_abbreviation_id = #{financeAbbreviationId,jdbcType=INTEGER},
+      finance_abbreviation_name = #{financeAbbreviationName,jdbcType=VARCHAR},
+      rebate_abbreviation_id = #{rebateAbbreviationId,jdbcType=INTEGER},
+      rebate_abbreviation_name = #{rebateAbbreviationName,jdbcType=VARCHAR},
+      data_status = #{dataStatus,jdbcType=TINYINT},
+      data_source = #{dataSource,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=TINYINT},
+      client_size = #{clientSize,jdbcType=TINYINT},
+      client_kind = #{clientKind,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="searchClientByClientNameList" resultType="com.zzb.db.model.SettlementClient">
+       select <include refid="Base_Column_List"/>
+       from settlement_client
+       where
+       <if test="clientNameList != null and clientNameList.size() != 0">
+             client_name in
+            <foreach collection="clientNameList" index="index" item="paymentNoItem" open="(" separator="," close=")">
+                #{paymentNoItem}
+            </foreach>
+        </if>
+        and is_deleted=0
+        and data_status=1
+    </select>
+</mapper>
